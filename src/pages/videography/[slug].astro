@@ -1,0 +1,21 @@
+---
+import VideoModalLayout from '../../components/VideoModalLayout.astro';
+import { getEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+	const videosEntry = await getEntry('videos', 'all');
+	const allVideos = videosEntry?.data || [];
+
+	return allVideos.map((video) => ({
+		params: { slug: video.slug },
+		props: { video },
+	}));
+}
+
+const { video } = Astro.props;
+
+const videosEntry = await getEntry('videos', 'all');
+const videos = videosEntry?.data ? [...videosEntry.data].sort((a, b) => a.order - b.order) : [];
+---
+
+<VideoModalLayout video={video} videos={videos} backUrl="/videography" />

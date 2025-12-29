@@ -1,0 +1,21 @@
+---
+import PhotoModalLayout from '../../../components/PhotoModalLayout.astro';
+import { getEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+	const generalEntry = await getEntry('photos', 'general');
+	const allPhotos = generalEntry?.data || [];
+
+	return allPhotos.map((photo) => ({
+		params: { slug: photo.slug },
+		props: { photo },
+	}));
+}
+
+const { photo } = Astro.props;
+
+const generalEntry = await getEntry('photos', 'general');
+const photos = generalEntry?.data ? [...generalEntry.data].sort((a, b) => a.order - b.order) : [];
+---
+
+<PhotoModalLayout photo={photo} photos={photos} backUrl="/photography/general" currentCategory="general" imageFolder="photography" />

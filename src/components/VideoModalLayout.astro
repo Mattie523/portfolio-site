@@ -1,0 +1,232 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+	video: any;
+	videos: any[];
+	backUrl: string;
+	currentCategory?: string;
+}
+
+const { video, videos, backUrl, currentCategory } = Astro.props;
+
+// Find current video index and prev/next
+const currentIndex = videos.findIndex(v => v.slug === video.slug);
+const prevVideo = currentIndex > 0 ? videos[currentIndex - 1] : null;
+const nextVideo = currentIndex < videos.length - 1 ? videos[currentIndex + 1] : null;
+
+function getPrevUrl() {
+	if (!prevVideo) return null;
+	return currentCategory ? `/videography/${currentCategory}/${prevVideo.slug}` : `/videography/${prevVideo.slug}`;
+}
+
+function getNextUrl() {
+	if (!nextVideo) return null;
+	return currentCategory ? `/videography/${currentCategory}/${nextVideo.slug}` : `/videography/${nextVideo.slug}`;
+}
+
+const prevUrl = getPrevUrl();
+const nextUrl = getNextUrl();
+---
+
+<Layout>
+	<div class="max-w-7xl mx-auto p-4 md:p-8">
+		<h2 class="text-3xl font-bold mb-6 dark:text-white">Videography</h2>
+
+		<!-- Sub-navigation -->
+		<nav class="mb-8">
+			<ul class="flex gap-6 md:gap-8 text-base md:text-lg">
+				<li><a href="/videography" class={`hover:text-sage-400 hover:underline decoration-sage-400 transition-colors ${!currentCategory ? 'text-sage-600 font-bold' : ''}`}>All</a></li>
+				<li><a href="/videography/brand-narrative" class={`hover:text-sage-400 hover:underline decoration-sage-400 transition-colors ${currentCategory === 'brand-narrative' ? 'text-sage-600 font-bold' : ''}`}>Brand & Narrative</a></li>
+				<li><a href="/videography/awards-recognition" class={`hover:text-sage-400 hover:underline decoration-sage-400 transition-colors ${currentCategory === 'awards-recognition' ? 'text-sage-600 font-bold' : ''}`}>Awards & Recognition</a></li>
+				<li><a href="/videography/insights" class={`hover:text-sage-400 hover:underline decoration-sage-400 transition-colors ${currentCategory === 'insights' ? 'text-sage-600 font-bold' : ''}`}>Insights</a></li>
+			</ul>
+		</nav>
+
+		<section class="isolate">
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+				{videos.map((v) => (
+					<a href={currentCategory ? `/videography/${currentCategory}/${v.slug}` : `/videography/${v.slug}`} class="overflow-hidden rounded-lg cursor-pointer group shadow-lg">
+						<div class="aspect-video relative">
+							{v.type === 'youtube' && v.poster && (
+								<Image
+									src={`/thumbnails/${v.poster}`}
+									alt={v.title}
+									width={1280}
+									height={720}
+									class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+								/>
+							)}
+							{v.type === 'youtube' && !v.poster && (
+								<Image
+									src={`https://img.youtube.com/vi/${v.videoId}/maxresdefault.jpg`}
+									alt={v.title}
+									width={1280}
+									height={720}
+									class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+								/>
+							)}
+							{v.type === 'vimeo' && v.poster && (
+								<Image
+									src={`/thumbnails/${v.poster}`}
+									alt={v.title}
+									width={1280}
+									height={720}
+									class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+								/>
+							)}
+							{v.type === 'vimeo' && !v.poster && (
+								<div class="w-full h-full bg-gray-300 dark:bg-stone-700 flex items-center justify-center">
+									<svg class="w-16 h-16 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+										<path d="M8 5v14l11-7z"/>
+									</svg>
+								</div>
+							)}
+							{v.type === 'local' && v.poster && (
+								<Image
+									src={`/thumbnails/${v.poster}`}
+									alt={v.title}
+									width={1280}
+									height={720}
+									class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+								/>
+							)}
+							{v.type === 'local' && !v.poster && (
+								<div class="w-full h-full bg-gray-300 dark:bg-stone-700 flex items-center justify-center">
+									<svg class="w-16 h-16 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+										<path d="M8 5v14l11-7z"/>
+									</svg>
+								</div>
+							)}
+							<div class="absolute inset-0 flex items-center justify-center">
+								<div class="w-16 h-16 bg-black/60 rounded-full flex items-center justify-center">
+									<svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+										<path d="M8 5v14l11-7z"/>
+									</svg>
+								</div>
+							</div>
+							<div class="absolute bottom-0 left-0 right-0 bg-black/70 p-4 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
+								<h3 class="font-semibold text-white">{v.title}</h3>
+								{v.role && (
+									<p class="text-sm text-gray-300 mt-1">{v.role}</p>
+								)}
+							</div>
+						</div>
+					</a>
+				))}
+			</div>
+		</section>
+	</div>
+
+	<!-- Video Modal/Overlay -->
+	<div id="modal-overlay" class="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4 md:p-8">
+		<div id="modal-content" class="relative w-full max-w-6xl pointer-events-none">
+			<a href={backUrl} id="close-button" class="absolute -top-12 right-0 md:-top-14 md:-right-14 w-12 h-12 flex items-center justify-center text-white text-4xl hover:text-gray-300 active:text-gray-400 z-10 bg-black/50 rounded-full leading-none pointer-events-auto" aria-label="Close video modal">&times;</a>
+
+			{/* Navigation Arrows */}
+			{prevUrl && (
+				<a href={prevUrl} class="absolute left-2 top-1/2 -translate-y-1/2 md:left-[-6rem] md:top-1/2 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center text-white text-4xl md:text-5xl hover:text-gray-300 active:text-gray-400 z-10 pointer-events-auto" aria-label="Previous video">‹</a>
+			)}
+			{nextUrl && (
+				<a href={nextUrl} class="absolute right-2 top-1/2 -translate-y-1/2 md:right-[-6rem] md:top-1/2 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center text-white text-4xl md:text-5xl hover:text-gray-300 active:text-gray-400 z-10 pointer-events-auto" aria-label="Next video">›</a>
+			)}
+
+			<div class="w-full aspect-video bg-black rounded-lg overflow-hidden shadow-2xl relative pointer-events-auto" transition:name={`video-${video.slug}`} transition:animate="morph">
+				{video.type === 'youtube' && (
+					<iframe id="video-iframe" class="w-full h-full relative z-0" src={`https://www.youtube.com/embed/${video.videoId}?autoplay=1&modestbranding=1&rel=0&iv_load_policy=3&color=white&loop=1&playlist=${video.videoId}`} title={video.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				)}
+				{video.type === 'vimeo' && (
+					<iframe id="video-iframe" class="w-full h-full relative z-0" src={`https://player.vimeo.com/video/${video.videoId}?autoplay=1`} title={video.title} allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+				)}
+				{video.type === 'local' && (
+					<video id="video-iframe" class="w-full h-full relative z-0" controls autoplay poster={video.poster ? `/thumbnails/${video.poster}` : undefined}>
+						<source src={`/videos/${video.filename}`} type="video/mp4" />
+						Your browser does not support the video tag.
+					</video>
+				)}
+				{/* Thumbnail overlay that fades out after transition */}
+				{(video.poster || video.type === 'youtube') && (
+					<div id="thumbnail-overlay" class="absolute inset-0 bg-black transition-opacity duration-500 pointer-events-none z-10">
+						<img
+							src={video.poster ? `/thumbnails/${video.poster}` : `https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`}
+							alt={video.title}
+							class="w-full h-full object-cover"
+						/>
+					</div>
+				)}
+			</div>
+
+			{/* Video title and role */}
+			<div class="mt-4 pl-4 pointer-events-auto">
+				<h3 class="text-taupe text-lg md:text-xl font-semibold">{video.title}</h3>
+				{video.role && (
+					<p class="text-gray-300 text-sm md:text-base mt-1">{video.role}</p>
+				)}
+			</div>
+		</div>
+	</div>
+
+	<script define:vars={{ backUrl, prevUrl, nextUrl }}>
+		// Close modal on ESC key, navigate with arrow keys
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape') {
+				window.location.href = backUrl;
+			} else if (e.key === 'ArrowLeft' && prevUrl) {
+				window.location.href = prevUrl;
+			} else if (e.key === 'ArrowRight' && nextUrl) {
+				window.location.href = nextUrl;
+			}
+		});
+
+		// Close modal when clicking background
+		const overlay = document.getElementById('modal-overlay');
+
+		overlay?.addEventListener('click', (e) => {
+			if (e.target === overlay) {
+				window.location.href = backUrl;
+			}
+		});
+
+		// Fade out thumbnail overlay after view transition and video load
+		function fadeOutThumbnail() {
+			const thumbnailOverlay = document.getElementById('thumbnail-overlay');
+			const videoIframe = document.getElementById('video-iframe');
+
+			if (!thumbnailOverlay) return;
+
+			// Wait for iframe to load
+			if (videoIframe && videoIframe.tagName === 'IFRAME') {
+				videoIframe.addEventListener('load', () => {
+					setTimeout(() => {
+						thumbnailOverlay.style.opacity = '0';
+						setTimeout(() => {
+							thumbnailOverlay.remove();
+						}, 500);
+					}, 300);
+				});
+			} else {
+				// For video elements, just delay slightly
+				setTimeout(() => {
+					thumbnailOverlay.style.opacity = '0';
+					setTimeout(() => {
+						thumbnailOverlay.remove();
+					}, 500);
+				}, 500);
+			}
+		}
+
+		// Run on page load
+		document.addEventListener('astro:page-load', fadeOutThumbnail);
+
+		// Also run immediately in case we're loading directly to this page
+		fadeOutThumbnail();
+	</script>
+
+	<style is:global>
+		::view-transition-old(video-*),
+		::view-transition-new(video-*) {
+			z-index: 100;
+		}
+	</style>
+</Layout>

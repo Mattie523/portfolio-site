@@ -1,0 +1,51 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+
+const portraitsEntry = await getEntry('photos', 'portraits');
+const portraits = portraitsEntry?.data ? [...portraitsEntry.data].sort((a, b) => a.order - b.order) : [];
+
+// Import all headshot images
+const images = import.meta.glob('/src/assets/headshots/*', { eager: true });
+
+const currentPath = Astro.url.pathname;
+---
+
+<Layout>
+	<div class="max-w-7xl mx-auto p-4 md:p-8">
+		<h2 class="text-3xl font-bold mb-6 dark:text-white">Photography</h2>
+
+		<!-- Sub-navigation -->
+		<nav class="mb-8">
+			<ul class="flex gap-6 md:gap-8 text-base md:text-lg">
+				<li><a href="/photography" class={`hover:text-sage-400 hover:underline decoration-sage-400 transition-colors ${currentPath === '/photography' || currentPath === '/photography/' ? 'text-sage-600 font-bold' : ''}`}>All</a></li>
+				<li><a href="/photography/headshots" class={`hover:text-sage-400 hover:underline decoration-sage-400 transition-colors ${currentPath === '/photography/headshots' || currentPath === '/photography/headshots/' ? 'text-sage-600 font-bold' : ''}`}>Headshots</a></li>
+				<li><a href="/photography/general" class={`hover:text-sage-400 hover:underline decoration-sage-400 transition-colors ${currentPath === '/photography/general' || currentPath === '/photography/general/' ? 'text-sage-600 font-bold' : ''}`}>General</a></li>
+			</ul>
+		</nav>
+
+		<section class="isolate">
+			<div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+				{portraits.map((photo) => {
+					const imagePath = `/src/assets/headshots/${photo.filename}`;
+					const imageModule = images[imagePath];
+					return (
+						<a href={`/photography/headshots/${photo.slug}`} class="break-inside-avoid mb-6 overflow-hidden bg-gray-200 dark:bg-stone-800 cursor-pointer group min-h-[200px] block">
+							{imageModule && (
+								<Image
+									src={imageModule.default}
+									alt={photo.alt}
+									loading="lazy"
+									widths={[400, 800, 1200]}
+									sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+									class="w-full h-auto block transition-transform duration-500 ease-out group-hover:scale-105"
+								/>
+							)}
+						</a>
+					);
+				})}
+			</div>
+		</section>
+	</div>
+</Layout>

@@ -1,0 +1,275 @@
+[
+	{
+		"type": "youtube",
+		"title": "Bryan South Campus | Imaging and Radiology Center",
+		"slug": "bryan-south-campus-imaging-and-radiology-center",
+		"videoId": "EwV1xxrfBEk",
+		"role": "Producer, Editor",
+		"date": "2024-10-10",
+		"category": "Brand & Narrative",
+		"order": 1
+	},
+	{
+		"type": "youtube",
+		"title": "Omaha Zoo Hospital Campaign",
+		"slug": "omaha-zoo-hospital-campaign",
+		"videoId": "OL542m-LFu0",
+		"role": "Videographer, Editor",
+		"date": "2025-05-21",
+		"category": "Brand & Narrative",
+		"order": 2
+	},
+	{
+		"type": "youtube",
+		"title": "GreenKeeper: Integrate Weather and Soil Data",
+		"slug": "greenkeeper-integrate-weather-and-soil-data",
+		"videoId": "_vaP86rBLy8",
+		"role": "Producer, Editor",
+		"date": "2023-01-16",
+		"category": "Insights",
+		"order": 3
+	},
+	{
+		"type": "youtube",
+		"title": "Lincoln Community Foundation 2024 Year in Review",
+		"slug": "lincoln-community-foundation-2024-year-in-review",
+		"videoId": "1clv4eE__XM",
+		"poster": "Lincoln Community Foundation 2024 Year in Review.png",
+		"role": "Videographer, Editor",
+		"date": "2025-05-06",
+		"category": "Brand & Narrative",
+		"order": 4
+	},
+	{
+		"type": "youtube",
+		"title": "Driving Change Through Human Understanding, A Vision for the Future | NRC Health",
+		"slug": "driving-change-through-human-understanding",
+		"videoId": "vMvIIHkr-HA",
+		"role": "Videographer",
+		"date": "2025-07-11",
+		"category": "Brand & Narrative",
+		"order": 5
+	},
+	{
+		"type": "youtube",
+		"title": "2025 Industry Service Award - Myron R. Benes",
+		"slug": "2025-industry-service-award-myron-r-benes",
+		"videoId": "ILPE4qUi3Z4",
+		"role": "Editor",
+		"date": "2025-12-18",
+		"category": "Awards & Recognition",
+		"order": 6
+	},
+	{
+		"type": "youtube",
+		"title": "A Trauma Champion at Bryan Health | Karli Byrd",
+		"slug": "trauma-champion-karli-byrd",
+		"videoId": "735S3DKCWC4",
+		"role": "Editor",
+		"date": "2024-11-15",
+		"category": "Brand & Narrative",
+		"order": 7
+	},
+	{
+		"type": "youtube",
+		"title": "Pediatric Dental Specialists: Office Tour",
+		"slug": "pediatric-dental-specialists-office-tour",
+		"videoId": "qM9YHUjiKGg",
+		"role": "Videographer, Editor",
+		"date": "2024-07-16",
+		"category": "Brand & Narrative",
+		"order": 8
+	},
+	{
+		"type": "youtube",
+		"title": "Current Soybean Agronomy Updates At Your Fingertips",
+		"slug": "current-soybean-agronomy-updates",
+		"videoId": "Yf3N7VDn8_4",
+		"role": "Videographer, Editor",
+		"date": "2025-06-06",
+		"category": "Insights",
+		"order": 9
+	},
+	{
+		"type": "youtube",
+		"title": "LCF Leadership Award",
+		"slug": "lcf-leadership-award",
+		"videoId": "Fcf6FrbQU1I",
+		"role": "Videographer, Editor",
+		"date": "2025-04-30",
+		"category": "Awards & Recognition",
+		"order": 10
+	},
+	{
+		"type": "youtube",
+		"title": "Exmark Manufacturing Testimonial | Three Pillars Media",
+		"slug": "exmark-manufacturing-testimonial",
+		"videoId": "B8Bqtoin4fY",
+		"role": "Editor",
+		"date": "2023-02-27",
+		"category": "Brand & Narrative",
+		"order": 11
+	},
+	{
+		"type": "youtube",
+		"title": "Feeding, Fueling And Innovating For The Future - Nebraska Soybean Board",
+		"slug": "nebraska-soybean-board-future",
+		"videoId": "vK0o_Tom6jY",
+		"role": "Producer, Videographer",
+		"date": "2025-02-20",
+		"category": "Brand & Narrative",
+		"order": 12
+	},
+	{
+		"type": "youtube",
+		"title": "Educare Lincoln for all",
+		"slug": "educare-lincoln-for-all",
+		"videoId": "4mcUPOmCU-k",
+		"role": "Videographer",
+		"date": "2025-07-22",
+		"category": "Brand & Narrative",
+		"order": 13
+	},
+	{
+		"type": "youtube",
+		"title": "Do More with GreenKeeper in 2023",
+		"slug": "do-more-with-greenkeeper-2023",
+		"videoId": "hBvEtel_e2o",
+		"role": "Producer, Editor",
+		"date": "2023-02-07",
+		"category": "Insights",
+		"order": 14
+	},
+	{
+		"type": "youtube",
+		"title": "Bellwether Wealth",
+		"slug": "bellwether-wealth",
+		"videoId": "Wofw1XeI-gw",
+		"role": "Editor",
+		"date": "2024-08-01",
+		"category": "Brand & Narrative",
+		"order": 15
+	},
+	{
+		"type": "youtube",
+		"title": "Soybean Cyst Nematode & Late-Season Disease – Nebraska Soybean Agronomy Update",
+		"slug": "soybean-cyst-nematode-late-season-disease",
+		"videoId": "VsnEMnk3UYU",
+		"role": "Producer, Videographer, Editor",
+		"date": "2024-09-06",
+		"category": "Insights",
+		"order": 16
+	},
+	{
+		"type": "youtube",
+		"title": "Mammogram: What to Expect and How to Prepare for a Breast Cancer Screening",
+		"slug": "mammogram-what-to-expect-and-how-to-prepare",
+		"videoId": "LHS57LjzBGw",
+		"role": "Producer, Editor",
+		"date": "2023-07-28",
+		"category": "Insights",
+		"order": 17
+	},
+	{
+		"type": "youtube",
+		"title": "NRC The Huddle: Patient Safety",
+		"slug": "nrc-the-huddle-patient-safety",
+		"videoId": "5L1wI1QxPoQ",
+		"role": "Videographer, Editor",
+		"date": "2023-09-22",
+		"category": "Insights",
+		"order": 18
+	},
+	{
+		"type": "youtube",
+		"title": "Culture at Woods Aitken",
+		"slug": "culture-at-woods-aitken",
+		"videoId": "N99A8ZCAPV0",
+		"role": "Editor",
+		"date": "2021-06-09",
+		"category": "Brand & Narrative",
+		"order": 19
+	},
+	{
+		"type": "youtube",
+		"title": "Celebrating Ava Thomas: 2025 JoAnn Martin Civic Leadership Award Recipient",
+		"slug": "celebrating-ava-thomas-2025-award",
+		"videoId": "56i7_C9fSMI",
+		"role": "Videographer, Editor",
+		"date": "2025-05-08",
+		"category": "Awards & Recognition",
+		"order": 20
+	},
+	{
+		"type": "youtube",
+		"title": "Day in the Life of a Ready Mixed Driver",
+		"slug": "day-in-life-ready-mixed-driver",
+		"videoId": "x21iSQHw1pM",
+		"role": "Videographer, Editor",
+		"date": "2022-07-11",
+		"category": "Brand & Narrative",
+		"order": 21
+	},
+	{
+		"type": "youtube",
+		"title": "Breakthrough Innovation of the year: Dr Bashford",
+		"slug": "breakthrough-innovation-dr-bashford",
+		"videoId": "MDxPBADk-ek",
+		"role": "Producer, Videographer, Editor",
+		"date": "2022-10-26",
+		"category": "Awards & Recognition",
+		"order": 22
+	},
+	{
+		"type": "vimeo",
+		"title": "Meet Lance Norquest, IAR, Director of Operations",
+		"slug": "meet-lance-norquest",
+		"videoId": "839879748",
+		"poster": "Meet Lance Norquest, IAR, Director of Operations.png",
+		"role": "Videographer, Editor",
+		"date": "2023-06-26",
+		"category": "Brand & Narrative",
+		"order": 23
+	},
+	{
+		"type": "youtube",
+		"title": "Breakthrough Innovation of the Year: Marc Maguire",
+		"slug": "breakthrough-innovation-marc-maguire",
+		"videoId": "oJD6H0Hg5o8",
+		"poster": "Breakthrough Innovation of the Year Marc Maguire.png",
+		"role": "Producer, Videographer, Editor",
+		"date": "2023-11-07",
+		"category": "Awards & Recognition",
+		"order": 24
+	},
+	{
+		"type": "youtube",
+		"title": "A Trauma Champion at Bryan Health: Willie Mohlman",
+		"slug": "trauma-champion-willie-mohlman",
+		"videoId": "SvsIweP51AE",
+		"role": "Editor",
+		"date": "2021-09-10",
+		"category": "Brand & Narrative",
+		"order": 25
+	},
+	{
+		"type": "youtube",
+		"title": "Facts not Fear - Food Labels",
+		"slug": "facts-not-fear-food-labels",
+		"videoId": "-j7Q7apjX3Y",
+		"role": "Videographer, Editor",
+		"date": "2022-06-15",
+		"category": "Insights",
+		"order": 26
+	},
+	{
+		"type": "youtube",
+		"title": "For Forever Kinetic Text (Dear Evan Hansen)",
+		"slug": "for-forever-kinetic-text",
+		"videoId": "wtrhNwlcUr4",
+		"role": "Illustrator, Editor",
+		"date": "2019-01-06",
+		"category": "Brand & Narrative",
+		"order": 27
+	}
+]

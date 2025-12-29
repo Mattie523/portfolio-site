@@ -1,0 +1,10 @@
+---
+import VideoGridLayout from '../../components/VideoGridLayout.astro';
+import { getEntry } from 'astro:content';
+
+const videosEntry = await getEntry('videos', 'all');
+const allVideos = videosEntry?.data ? [...videosEntry.data] : [];
+const videos = allVideos.filter(v => v.category === 'Brand & Narrative').sort((a, b) => a.order - b.order);
+---
+
+<VideoGridLayout videos={videos} currentCategory="brand-narrative" />

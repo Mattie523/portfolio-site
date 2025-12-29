@@ -1,0 +1,93 @@
+[
+	{
+		"filename": "Kayla.jpeg",
+		"slug": "kayla",
+		"alt": "Portrait",
+		"category": "portraits",
+		"order": 1
+	},
+	{
+		"filename": "Portfolio_Edits01-06941.jpg",
+		"slug": "portfolio-edits01-06941",
+		"alt": "Portrait",
+		"category": "portraits",
+		"order": 2
+	},
+	{
+		"filename": "CW_25_Michelle Sitorius 1000x667.jpg.webp",
+		"slug": "michelle-sitorius",
+		"alt": "Portrait",
+		"category": "portraits",
+		"order": 3
+	},
+	{
+		"filename": "2025_Henry Headshot_BW-01779.jpg",
+		"slug": "henry-headshot-bw",
+		"alt": "Portrait",
+		"category": "portraits",
+		"order": 4
+	},
+	{
+		"filename": "CW_25_002 Summer Associates-01783.jpg",
+		"slug": "summer-associates-01783",
+		"alt": "Portrait",
+		"category": "portraits",
+		"order": 5
+	},
+	{
+		"filename": "jeffrey owusu-ansah.jpg",
+		"slug": "jeffrey-owusu-ansah",
+		"alt": "Portrait",
+		"category": "portraits",
+		"order": 6
+	},
+	{
+		"filename": "Lance.jpeg",
+		"slug": "lance",
+		"alt": "Portrait",
+		"category": "portraits",
+		"order": 7
+	},
+	{
+		"filename": "WA_25_004 Headshots-3PA00022.jpg",
+		"slug": "headshots-3pa00022",
+		"alt": "Portrait",
+		"category": "portraits",
+		"order": 8
+	},
+	{
+		"filename": "CW_25_Kevin Schneider 1000x667.jpg.webp",
+		"slug": "kevin-schneider",
+		"alt": "Portrait",
+		"category": "portraits",
+		"order": 9
+	},
+	{
+		"filename": "Larry.jpeg",
+		"slug": "larry",
+		"alt": "Portrait",
+		"category": "portraits",
+		"order": 10
+	},
+	{
+		"filename": "Portfolio_Edits01-03293.jpg",
+		"slug": "portfolio-edits01-03293",
+		"alt": "Portrait",
+		"category": "portraits",
+		"order": 11
+	},
+	{
+		"filename": "CW_25_002_Summer Associate Headshots-01916.jpg",
+		"slug": "summer-associate-headshots-01916",
+		"alt": "Portrait",
+		"category": "portraits",
+		"order": 12
+	},
+	{
+		"filename": "CW_25_Andre Barry 1000x667.jpg.webp",
+		"slug": "andre-barry",
+		"alt": "Portrait",
+		"category": "portraits",
+		"order": 13
+	}
+]

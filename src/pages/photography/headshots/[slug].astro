@@ -1,0 +1,21 @@
+---
+import PhotoModalLayout from '../../../components/PhotoModalLayout.astro';
+import { getEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+	const portraitsEntry = await getEntry('photos', 'portraits');
+	const allPhotos = portraitsEntry?.data || [];
+
+	return allPhotos.map((photo) => ({
+		params: { slug: photo.slug },
+		props: { photo },
+	}));
+}
+
+const { photo } = Astro.props;
+
+const portraitsEntry = await getEntry('photos', 'portraits');
+const photos = portraitsEntry?.data ? [...portraitsEntry.data].sort((a, b) => a.order - b.order) : [];
+---
+
+<PhotoModalLayout photo={photo} photos={photos} backUrl="/photography/headshots" currentCategory="headshots" imageFolder="headshots" />

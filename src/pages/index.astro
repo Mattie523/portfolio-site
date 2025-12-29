@@ -1,0 +1,119 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+
+const videosEntry = await getEntry('videos', 'all');
+const allVideos = videosEntry?.data ? [...videosEntry.data] : [];
+const recentVideos = allVideos.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).slice(0, 6);
+---
+
+<Layout>
+	<!-- Hero Video Section -->
+	<section class="relative w-full flex items-center justify-center overflow-hidden h-[70vh] p-4 md:p-8" aria-label="Hero section with video showcase">
+<div class="p-4 relative w-full h-full rounded-3xl overflow-hidden">
+		<iframe
+			src="https://player.vimeo.com/video/1150125392?autoplay=1&loop=1&muted=1&background=1"
+			class="absolute inset-0 w-full h-full object-cover"
+			frameborder="0"
+			allow="autoplay; fullscreen; picture-in-picture"
+			aria-label="Showcase reel of photography and videography work"
+		></iframe>
+		<div class="absolute inset-0 bg-black/40"></div>
+		<div class="absolute w-full h-full z-10 flex flex-col items-center justify-center text-center px-4">
+			<h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-10 drop-shadow-lg">
+				The best stories are unscripted
+			</h1>
+			<div class="flex gap-3 md:gap-8 justify-center flex-wrap">
+				<a
+					href="/photography"
+					class="inline-block bg-sage-400 hover:bg-sage-600 text-white font-bold px-8 py-4 md:px-10 md:py-5 text-base md:text-lg rounded transition-colors shadow-lg min-h-[48px]"
+				>
+					Photography
+				</a>
+				<a
+					href="/videography"
+					class="inline-block bg-sage-400 hover:bg-sage-600 text-white font-bold px-8 py-4 md:px-10 md:py-5 text-base md:text-lg rounded transition-colors shadow-lg min-h-[48px]"
+				>
+					Videography
+				</a>
+			</div>
+		</div>
+		</div>
+	</section>
+
+	<div class="max-w-7xl mx-auto p-4 md:p-8 w-full">
+		<!-- Headshot and Text Section -->
+		<div class="flex flex-col md:flex-row justify-evenly items-center gap-6 md:gap-8 mb-8 md:mb-12">
+			<div class="w-64 h-64 md:w-80 md:h-80 overflow-hidden rounded-full">
+				<img src="/mattie-headshot.png" alt="Mattie Sipp headshot" class="w-full h-full object-cover" />
+			</div>
+			<div class="flex flex-col justify-center items-start max-w-xl">
+				<h2 class="text-2xl md:text-3xl font-bold mb-4 dark:text-white">Hi, I'm Mattie!</h2>
+				<p class="text-base md:text-lg dark:text-white">
+					I capture photos and create videos for people and organizations doing work that actually matters. I'm big on watching real people do real work because I believe the best stories aren't scripted. My goal is to give you content you're excited to share, using a process that doesn't feel like a chore. If you want visuals that feel human, intentional, and a little fun, we'll get along great.
+				</p>
+			</div>
+		</div>
+
+		<!-- Recent Work Section -->
+		<section class="mt-12 md:mt-16 isolate">
+			<h2 class="text-3xl font-bold mb-6 dark:text-white">Recent Work</h2>
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+				{recentVideos.map((video) => (
+					<a href={`/videography/${video.slug}`} class="overflow-hidden rounded-lg cursor-pointer group shadow-lg hover:shadow-sage-400/50 hover:shadow-2xl transition-shadow">
+						<div class="aspect-video relative">
+							{video.type === 'youtube' && video.poster && (
+								<Image
+									src={`/thumbnails/${video.poster}`}
+									alt={video.title}
+									width={1280}
+									height={720}
+									class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+								/>
+							)}
+							{video.type === 'youtube' && !video.poster && (
+								<Image
+									src={`https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`}
+									alt={video.title}
+									width={1280}
+									height={720}
+									class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+								/>
+							)}
+							{video.type === 'vimeo' && video.poster && (
+								<Image
+									src={`/thumbnails/${video.poster}`}
+									alt={video.title}
+									width={1280}
+									height={720}
+									class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+								/>
+							)}
+							{video.type === 'vimeo' && !video.poster && (
+								<div class="w-full h-full bg-gray-300 dark:bg-stone-700 flex items-center justify-center">
+									<svg class="w-16 h-16 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+										<path d="M8 5v14l11-7z"/>
+									</svg>
+								</div>
+							)}
+							<div class="absolute inset-0 flex items-center justify-center">
+								<div class="w-16 h-16 bg-black/60 rounded-full flex items-center justify-center">
+									<svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+										<path d="M8 5v14l11-7z"/>
+									</svg>
+								</div>
+							</div>
+							<div class="absolute bottom-0 left-0 right-0 bg-black/70 p-4 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
+								<h3 class="font-semibold text-white">{video.title}</h3>
+								{video.role && (
+									<p class="text-sm text-gray-300 mt-1">{video.role}</p>
+								)}
+							</div>
+						</div>
+					</a>
+				))}
+			</div>
+		</section>
+	</div>
+</Layout>
