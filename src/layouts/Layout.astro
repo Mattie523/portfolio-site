@@ -28,14 +28,14 @@ const currentPath = Astro.url.pathname;
 		</a>
 
 		<div class="fixed inset-x-0 top-0 h-[20vh] bg-gradient-to-b from-sage-300 dark:from-sage-300/50 to-transparent pointer-events-none z-0"></div>
-		<header class="bg-transparent relative z-10">
+		<header class="bg-transparent relative z-10" transition:name="site-header">
 			<div class="max-w-7xl mx-auto px-4 md:px-8 pt-4 pb-1">
 				<h1 class="text-3xl md:text-5xl font-bold pt-2">
 					<a href="/" class="text-black dark:text-white pointer-events-none md:pointer-events-auto md:hover:opacity-70 transition-opacity">Mattie Sipp</a>
 				</h1>
 			</div>
 		</header>
-		<nav id="main-nav" class="sticky top-0 z-50 bg-transparent transition-all duration-300">
+		<nav id="main-nav" class="sticky top-0 z-50 bg-transparent transition-all duration-300" transition:name="main-nav">
 			<div class="max-w-7xl mx-auto px-4 md:px-8 py-3 md:py-4">
 				<!-- Mobile hamburger button -->
 				<button id="mobile-menu-button" class="md:hidden w-12 h-12 flex items-center justify-center hover:text-sage-500 transition-colors" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -121,14 +121,6 @@ const currentPath = Astro.url.pathname;
 					mobileMenuButton?.setAttribute('aria-expanded', 'false');
 				});
 			});
-
-			// Footer email reveal
-			document.getElementById('footer-email-toggle')?.addEventListener('click', function() {
-				const emailText = document.getElementById('footer-email-text');
-				if (emailText) {
-					emailText.textContent = 'mattie.sipp@hey.com';
-				}
-			});
 		</script>
 		<main id="main-content" class="flex-1" tabindex="-1">
 			<slot />
@@ -153,9 +145,9 @@ const currentPath = Astro.url.pathname;
 					</div>
 					<div>
 						<h3 class="text-base md:text-lg font-bold mb-2 md:mb-3">Contact</h3>
-						<button id="footer-email-toggle" class="text-sm md:text-base hover:text-sage-400 transition-colors cursor-pointer text-left">
-							<span id="footer-email-text">Click here to prove you're not a bot!</span>
-						</button>
+						<a href="/contact" class="text-sm md:text-base hover:text-sage-400 transition-colors">
+							Get in touch
+						</a>
 					</div>
 				</div>
 				<div class="border-t border-white/20 pt-4 md:pt-6 text-center text-xs md:text-sm">

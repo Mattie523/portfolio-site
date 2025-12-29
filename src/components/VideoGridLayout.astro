@@ -13,10 +13,10 @@ const currentPath = Astro.url.pathname;
 
 <Layout>
 	<div class="max-w-7xl mx-auto p-4 md:p-8">
-		<h2 class="text-3xl font-bold mb-6 dark:text-white">Videography</h2>
+		<h2 class="text-3xl font-bold mb-6 dark:text-white" transition:name="videography-title">Videography</h2>
 
 		<!-- Sub-navigation -->
-		<nav class="mb-8">
+		<nav class="mb-8" transition:name="videography-tabs">
 			<ul class="flex gap-6 md:gap-8 text-base md:text-lg">
 				<li><a href="/videography" class={`hover:text-sage-400 hover:underline decoration-sage-400 transition-colors ${currentPath === '/videography' || currentPath === '/videography/' ? 'text-sage-600 font-bold' : ''}`}>All</a></li>
 				<li><a href="/videography/brand-narrative" class={`hover:text-sage-400 hover:underline decoration-sage-400 transition-colors ${currentPath === '/videography/brand-narrative' || currentPath === '/videography/brand-narrative/' ? 'text-sage-600 font-bold' : ''}`}>Brand & Narrative</a></li>

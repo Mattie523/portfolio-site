@@ -11,15 +11,15 @@ const recentVideos = allVideos.sort((a, b) => new Date(b.date).getTime() - new D
 <Layout>
 	<!-- Hero Video Section -->
 	<section class="relative w-full flex items-center justify-center overflow-hidden h-[70vh] p-4 md:p-8" aria-label="Hero section with video showcase">
-<div class="p-4 relative w-full h-full rounded-3xl overflow-hidden">
-		<iframe
-			src="https://player.vimeo.com/video/1150125392?autoplay=1&loop=1&muted=1&background=1"
-			class="absolute inset-0 w-full h-full object-cover"
-			frameborder="0"
-			allow="autoplay; fullscreen; picture-in-picture"
-			aria-label="Showcase reel of photography and videography work"
-		></iframe>
-		<div class="absolute inset-0 bg-black/40"></div>
+		<div class="relative w-full max-w-7xl mx-auto" style="aspect-ratio: 16/9;">
+			<iframe
+				src="https://player.vimeo.com/video/1150125392?autoplay=1&loop=1&muted=1&background=1"
+				class="absolute inset-0 w-full h-full rounded-3xl"
+				frameborder="0"
+				allow="autoplay; fullscreen; picture-in-picture"
+				aria-label="Showcase reel of photography and videography work"
+			></iframe>
+			<div class="absolute inset-0 bg-black/40 rounded-3xl pointer-events-none"></div>
 		<div class="absolute w-full h-full z-10 flex flex-col items-center justify-center text-center px-4">
 			<h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-10 drop-shadow-lg">
 				The best stories are unscripted
